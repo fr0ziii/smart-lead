@@ -1,7 +1,12 @@
 import * as express from 'express';
+import * as cors from 'cors';
 
 const app = express();
 const port = 3000; // Or any port you prefer
+
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 app.use(express.json());
 
