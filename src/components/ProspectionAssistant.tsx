@@ -18,7 +18,7 @@ const ProspectionAssistant: React.FC<ProspectionAssistantProps> = ({ token }) =>
   const [generatedEmail, setGeneratedEmail] = useState<{ subject: string; body: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const generateEmail = async (prospectId: string) => {
+  const generateEmail = async (prospect: Prospect) => {
     setIsGeneratingEmail(true);
     setGeneratedEmail(null);
     setError(null);
@@ -26,12 +26,13 @@ const ProspectionAssistant: React.FC<ProspectionAssistantProps> = ({ token }) =>
     const apiUrl = import.meta.env.VITE_API_URL;
 
     try {
-      const response = await fetch(`${apiUrl}/prospects/${prospectId}/email`, {
+      const response = await fetch(`${apiUrl}/prospects/${prospect.id}/email`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
+        body: JSON.stringify(prospect),
       });
 
       if (!response.ok) {
@@ -87,7 +88,7 @@ const ProspectionAssistant: React.FC<ProspectionAssistantProps> = ({ token }) =>
   const handleGenerateEmailClick = (prospect: Prospect) => {
     setSelectedProspect(prospect);
     setShowEmailModal(true);
-    generateEmail(prospect.id); // Trigger email generation API call
+    generateEmail(prospect); // Trigger email generation API call with prospect object
   };
 
   const handleCloseModal = () => {
