@@ -1,11 +1,11 @@
-# Smart Lead - AI Agent
+# SmartLead - AI Agent
 
 ![Project Status](https://img.shields.io/badge/Status-In%20Development-orange)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Project Overview
 
-This project, "Smart Lead - AI Agent", is designed to streamline B2B lead generation and sales outreach through the power of AI. It aims to automate prospect identification, personalize email communication, and provide valuable insights for sales teams.
+This project, "SmartLead", is designed to streamline B2B lead generation and sales outreach through the power of AI. It aims to automate prospect identification, personalize email communication, and provide valuable insights for sales teams.
 
 ## Key Features
 - Intelligent prospect search based on industry, company size, and role criteria
