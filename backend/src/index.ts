@@ -52,12 +52,12 @@ app.post('/api/v1/prospects/search', authenticateToken, async (req, res) => {
   }
 
   try {
-    const prompt = `Generate a JSON array of 3-5 fictional B2B prospects based on the following criteria:
+    const prompt = `Generate a JSON object containing a key named 'prospects'. The value of 'prospects' should be a JSON array of 3-5 fictional B2B prospects based on the following criteria:
 Industry: ${industry}
 Company Size: ${companySize}
 Contact Position: ${contactPosition}
 
-Each prospect object should have the following properties: id (unique string), companyName, industry, website, companySize, contactName, contactPosition. Ensure the data is coherent and credible.`;
+Each object within the 'prospects' array should have the following properties: id (unique string), companyName, industry, website, companySize, contactName, contactPosition. Ensure the data is coherent and credible.`;
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo', // Using gpt-3.5-turbo as a default, can be refined
@@ -137,7 +137,7 @@ Contact Position: ${prospect.contactPosition || 'N/A'}
 Industry: ${prospect.industry || 'N/A'}
 Website: ${prospect.website || 'N/A'}
 
-The email should be professional and persuasive, with a clear subject line. Provide the output as a JSON object with 'subject' and 'body' properties.`;
+Tailor the email content to the prospect's industry and contact position to make it as relevant and persuasive as possible. The email should be professional and persuasive, with a clear subject line. Provide the output as a JSON object with 'subject' and 'body' properties.`;
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo', // Using gpt-3.5-turbo as a default, can be refined

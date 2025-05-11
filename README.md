@@ -59,13 +59,34 @@ VITE_API_KEY=your_api_key
 
 ## Usage
 
-### Start the development server
+### Start the frontend development server
 
 ```bash
 npm run dev
 ```
 
-This will start the frontend development server. You may also need to start the backend server separately if it's not already running.
+This will start the frontend development server.
+
+## Backend Setup and Usage
+
+The backend is a Node.js application located in the `backend` directory.
+
+### Environment Variables
+
+In addition to the frontend environment variables, the backend requires an OpenAI API key. Update the `.env` file with your OpenAI API key:
+
+```
+OPENAI_API_KEY=your_openai_api_key
+```
+
+### Start the backend server
+
+Navigate to the `backend` directory and run the start script:
+
+```bash
+cd backend
+npm start
+```
 
 ## License
 
